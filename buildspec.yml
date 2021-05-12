@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      Node.js: 16.1.0
+      nodejs: 14.1.0
     commands:
       - echo "Installing dependencies..."
       - pip install -r requirements.txt -t lib
