@@ -11,10 +11,4 @@ phases:
       - echo "Zipping deployment package..."
       
       - zip -r9 ../deepl-for-slack.zip .
-      - cd ..
-      - zip -g deepl-for-slack.zip src/deepl.ts
-  post_build:
-    commands:
-      - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name deepl-for-slack --zip-file fileb://deepl-for-slack.zip
-      - echo "DONE!!"
+      
