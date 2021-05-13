@@ -10,7 +10,7 @@ phases:
     commands:
       - echo "Zipping deployment package..."
       
-      - zip -r9 ../deepl-for-slack.zip 
+      - zip -r9 ../deepl-for-slack.zip .
 artifacts:
   files:
     - '**/*'
