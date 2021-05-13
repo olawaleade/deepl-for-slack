@@ -14,8 +14,6 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: deepl-for-slack
-  name: deepl-build-artifact
-  discard-paths: no
+ 
 
       
