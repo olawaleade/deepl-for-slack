@@ -1,12 +1,32 @@
 version: 0.0
-Resources:
-  - deepl-for-slack:
-      Type: AWS::Lambda::Function
-      Properties:
-        Name: "deepl-for-slack"
-        Alias: "deeplSlackAlias"
-        CurrentVersion: "1"
-        TargetVersion: "2"
-Hooks:
-  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
-  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+os: linux
+files:
+    - source: /
+      destination: /var/www/html/
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: root
+#Resources:
+ # - deepl-for-slack:
+  #    Type: AWS::Lambda::Function
+  #    Properties:
+   #     Name: "deepl-for-slack"
+   #     Alias: "deeplSlackAlias"
+   #     CurrentVersion: "1"
+   #     TargetVersion: "2"
+#Hooks:
+#  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+ # - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+
+
+
+
